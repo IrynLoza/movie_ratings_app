@@ -27,15 +27,14 @@ class User(db.Model):
 
     user_id = db.Column(db.Integer,
                         autoincrement=True,
-                        primary_key=True)
-    user_name = db.Column(db.String, unique=True, nullable=False)   #delete (50)                 
+                        primary_key=True)                 
     email = db.Column(db.String, unique=True, nullable=False)
     password = db.Column(db.String, nullable=False)
 
     # ratings = a list of Rating objects
 
     def __repr__(self):
-        return f'<User user_name={self.user_name} email={self.email}>' 
+        return f'<User user_id={self.user_id} email={self.email}>' 
         #Remember when creating a test user to include user_name along with email and password
 
 class Rate(db.Model):
