@@ -3,10 +3,10 @@
 from model import db, User, Movie, Rate, connect_to_db
 from datetime import datetime
 
-def create_user(user_name, email, password):
+def create_user(email, password):
     """Create and return a new user."""
 
-    user = User(user_name=user_name, email=email, password=password)
+    user = User(email=email, password=password)
 
     db.session.add(user)
     db.session.commit()
@@ -21,7 +21,12 @@ def create_movie(title, overview, release_date, poster_path):
     db.session.add(movie)
     db.session.commit()
 
-    return movie   
+    return movie 
+
+def get_movies():
+    """Returns all movies"""
+    
+    return Movie.query.all()      
 
 def create_rate(user, movie, rate):
     """Create and return a new rate.""" 
