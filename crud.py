@@ -19,7 +19,14 @@ def get_users():
 
 def get_user_by_id(user_id):
 
-    return User.query.get(user_id)      
+    return User.query.get(user_id) 
+
+def get_user_by_email(email):
+
+    # if User.email == email:
+    return User.query.filter(User.email == email).one() 
+    # else:
+    #     return None     
 
 def create_movie(title, overview, release_date, poster_path):
     """Create and return a new movie."""
